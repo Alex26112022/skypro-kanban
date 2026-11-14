@@ -1,17 +1,18 @@
+import { cardList } from '../../data';
 import Card from '../Card/Card';
 
-function Column() {
+function Column(props) {
   return (
     <div className="main__column column">
       <div className="column__title">
-        <p>Без статуса</p>
+        <p>{props.status}</p>
       </div>
       <div className="cards">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {cardList
+          .filter((card) => card.status === props.status)
+          .map((card) => (
+            <Card key={card.id} card={card} />
+          ))}
       </div>
     </div>
   );
