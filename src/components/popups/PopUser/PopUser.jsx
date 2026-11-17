@@ -1,6 +1,10 @@
-function PopUser() {
+function PopUser({ isOpen }) {
+  const isView = isOpen ? 'block' : 'none';
   return (
-    <div className="header__pop-user-set pop-user-set" id="user-set-target">
+    <div
+      className="header__pop-user-set pop-user-set"
+      style={{ display: isView }}
+    >
       {/* <a href="">x</a> */}
       <p className="pop-user-set__name">Ivan Ivanov</p>
       <p className="pop-user-set__mail">ivan.ivanov@gmail.com</p>
